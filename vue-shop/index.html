@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue</title>
+</head>
+<body>
+<div id="root">
+    <div  v-if="current_page == 'product-admin'" class="page product-admin">
+        <h1>商品管理</h1>
+        <form @submit.prevent="add_or_update">
+            <input type="text" v-model="current_product.title"><br>
+            <input type="text" v-model="current_product.price"><br>
+            <button type="submit">提交</button>
+            <hr>
+        </form>
+        <div v-for="product in product_list" class="product-list">
+            {{product.title}}<br>
+            {{product.price}}<br>
+            <button @click="current_product = product">更新</button>
+            <button @click="remove(product.id)">删除</button>
+        </div>
+    </div>
+    <div v-if="current_page == 'product-cat'" class="page product-cat">
+        <h1>分类管理</h1>
+    </div>
+</div>
+<script src="js/vue.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/base.js"></script>
+</body>
+</html>

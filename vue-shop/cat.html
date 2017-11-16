@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Cat</title>
+</head>
+<body>
+<div id="root">
+    <page-product :catlist="cat_list" :list="product_list"></page-product>
+    <page-cat :list="cat_list"></page-cat>
+</div>
+<template id="tpl-page-product">
+    <div>
+        <h1>商品管理</h1>
+        <form @submit.prevent="trigger('product_add_or_update',form_product)">
+            <div>
+                标题:<input type="text" v-model="form_product.title"><br>
+                <div v-if="!valid_title" class="error">标题有误</div>
+            </div>
+            <div>
+                价格:<input type="text" v-model="form_product.price"><br>
+                <div v-if="!valid_price" class="error">价格有误</div>
+            </div>
+            <div>
+                分类:<select v-model="form_product.cat_id">
+                <option v-for="cat in catlist" :value="cat.id">{{cat.title}}</option>
+            </select>
+                <div v-if="!valid_cat_id" class="error">分类有误</div>
+            </div>
+            <button type="submit">提交</button>
+        </form>
+        <div>
+            <div v-for="product in list">
+                商品:<b>{{product.title}}</b>
+                价格:<span>{{product.price}}</span>
+                分类:<span>{{product.cat_id}}</span>
+                <button @click="fill_form(product)">更新</button>
+                <button @click="product_remove(product.id)">删除</button>
+            </div>
+        </div>
+    </div>
+</template>
+<template id="tpl-page-cat">
+    <div>
+        <h1>分类管理</h1>
+        <form @submit.prevent="trigger('cat_add_or_update',form_cat)">
+            标题:<input type="text" v-model="form_cat.title"><br>
+            <!--<input type="text" v-model="form_cat.price"><br>-->
+            父级ID:<select v-model="form_cat.parent_id">
+            <option value="0">根分类</option>
+            <option v-for="cat in list" :value="cat.id">{{cat.title}}</option>
+        </select>
+            <button type="submit">提交</button>
+        </form>
+        <div v-for="cat in list">
+            <b>{{cat.title}}</b>
+            <span>{{cat.price}}</span>
+            <span>{{cat.parent_id}}</span>
+            <button @click="fill_form(cat)">更新</button>
+            <button @click="cat_remove(cat.id)">删除</button>
+        </div>
+    </div>
+</template>
+<script src="js/vue.js"></script>
+<script src="js/storage.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
