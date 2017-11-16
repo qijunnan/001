@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Todolist</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <section>
+            <form action="javascript:postaction()" id="form">
+                <label for="title">ToList</label>
+                <input type="text" id="title" name="title" placeholder="添加ToDo" required="required" autocomplete="off" />
+            </form>
+        </section>
+    </header>
+    <section>
+        <h2 onclick="sava()">未完成 <span id="todocount"></span></h2>
+        <ol id="todolist" class="box-demo">
+        </ol>
+        <h2>已完成 <span id="donecount"></span></h2>
+        <ul id="donelist">
+        </ul>
+    </section>
+    <footer></footer>
+    <script src="index.js"></script>
+</body>
+</html>
