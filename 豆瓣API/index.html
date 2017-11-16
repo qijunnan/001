@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="goloal.css">
+</head>
+<body>
+<div id="root">
+    <div class="search-bar">
+        <form @submit.prevent="search()">
+            <input type="search" v-model="keyword" placeholder="书名">
+            <button type="submit">搜索</button>
+        </form>
+        <div class="result" v-for="book in result.books">
+            <div class="col col-2">
+                <img :src="book.image" alt="">
+            </div>
+            <div class="col col-10">{{book.title}}</div>
+        </div>
+    </div>
+</div>
+<script src="jQuery.js"></script>
+<script src="vue.js"></script>
+<script src="index.js"></script>
+</body>
+</html>

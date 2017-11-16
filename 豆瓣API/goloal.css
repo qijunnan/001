@@ -1,0 +1,70 @@
+*{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    position: relative;
+    text-decoration: none;
+}
+img{
+    display: block;
+}
+body{
+    margin: 0;
+    font-family: "Microsoft YaHei", "微软雅黑", sans-serif;
+    font-size: 15px;
+}
+.wrapper{
+    margin: 0 auto;
+    max-width: 1080px;
+}
+.row{
+    font-size: 0;
+}
+.col{
+    font-size: 15px;
+    display: inline-block;
+    vertical-align: top;
+}
+.left{
+    text-align: left;
+}
+.right{
+    text-align: right;
+    width: 90%;
+}
+.col-3{
+    width: 25%;
+}
+.col-1{
+    width: 8.33333333%;
+}
+.col-2{
+    width: 16.6666666%;
+}
+.col-4{
+    width: 33.3333333%;
+}
+.col-5{
+    width: 41.6666666%;
+}
+.col-6{
+    width: 50%;
+}
+.col-7{
+    width: 58.33333333%;
+}
+.col-8{
+    width: 66.66666666%;
+}
+.col-9{
+    width: 75%;
+}
+.col-10{
+    width: 83.333333%;
+}
+.col-11{
+    width: 91.6666666%;
+}
+.col-12{
+    width: 100%;
+}
